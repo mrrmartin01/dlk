@@ -37,6 +37,7 @@ body {
 .nav-list li a.active {
   font-weight: bold;
   color: #005bb5;
+  text-decoration: underline; /* Add this for better visibility */
 }
 
 .page-title {
