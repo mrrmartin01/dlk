@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body(class='main-body')
+    header
+      nav(class='navbar')
+        ul(class='nav-list')
+          li 
+            a(href='/' class=(activeRoute === '/' ? 'active' : '')) Home
+          li 
+            a(href='/about' class=(activeRoute === '/about' ? 'active' : '')) About
+          li 
+            a(href='/contact' class=(activeRoute === '/contact' ? 'active' : '')) Contact
+    block content
+footer 
+  p(class='footer-text') © 2023 My Application. All rights reserved.
