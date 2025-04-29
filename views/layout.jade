@@ -2,17 +2,34 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/swiper-bundle.min.css')
+    link(rel='stylesheet', href='/stylesheets/aos.css')
+
+    if pageStyles
+      link(rel='stylesheet', href=pageStyles)
+
   body(class='main-body')
     header
-      nav(class='navbar')
-        ul(class='nav-list')
-          li 
+      nav.navbar.hotel-navbar
+        ul.nav-list
+          li(class=(currentUrl === '/' ? 'active' : ''))
             a(href='/') Home
-          li 
-            a(href='/about') About
-          li 
-            a(href='/contact') Contact
+          li(class=(currentUrl === '/weddings' ? 'active' : ''))
+            a(href='/weddings') Weddings
+          li(class=(currentUrl === '/fashion' ? 'active' : ''))
+            a(href='/fashion') Fashion
+          li(class=(currentUrl === '/personal' ? 'active' : ''))
+            a(href='/personal') Personal
+          li.contact-cta
+            a(href='/contact') Contact Us
+
     block content
-footer 
-  p(class='footer-text') © 2023 My Application. All rights reserved.
+
+    footer 
+      p.footer-text © 2023 My Application. All rights reserved.
+
+    script(src="/javascript/swiper-bundle.min.js")
+    script(src="/javascript/aos.js")
+    script(src="/javascript/main.js")

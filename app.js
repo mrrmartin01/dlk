@@ -3,9 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+
+mongoose.connect(process.env.DATABASE_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log(' MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
+console.log('Stripe Key:', process.env.STRIPE_SECRET_KEY);
+console.log('MongoDB URI:', process.env.DATABASE_URI); 
+
+
 
 var indexRouter = require('./routes/index');
 var aboutRouter = require('./routes/about');
+var bookRouter = require('./routes/book');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -20,6 +35,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware to set currentUrl for all views
+app.use(function(req, res, next) {
+  res.locals.currentUrl = req.path;
+  next();
+});
+
+
+// Middleware to set the title for all views
 app.use('/', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/users', usersRouter);
@@ -28,6 +51,8 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
 
 // error handler
 app.use(function(err, req, res, next) {

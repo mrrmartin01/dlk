@@ -1,11 +1,123 @@
 extends layout
 
 block content
-  h1(class='page-title')= title
-  p(class='welcome-message') Welcome to #{title}
+  section.hero
+    .hero-overlay
+      .spotlight-left
+      .spotlight-right
+    .hero-content
+      span.hero-eyebrow Professional Photography
+      h1.hero-title Capture your 
+        span.gradient-text moments
+        br
+        | in perfect light
+      p.hero-subtitle Professional studio space and equipment. Book your session today.
+      .cta-group
+        a.btn.btn-primary(href="#booking") Book Session
+        a.btn.btn-secondary(href="#portfolio") View Portfolio
+
+  section.about
+    .container
+      h2.section-header What I Do
+      p.section-subheading Capturing life's precious moments with artistic vision
+      .service-grid
+        .service-card
+          i.fas.fa-camera
+          h3 Portrait Photography
+          p Professional portraits that capture your authentic self in studio or on location.
+        .service-card
+          i.fas.fa-heart
+          h3 Wedding Photography
+          p Documenting your special day with creativity and attention to detail.
+        .service-card
+          i.fas.fa-building
+          h3 Commercial
+          p High-quality imagery for your business and brand identity.
+
+  section.portfolio
+    .container
+      h2.section-header Featured Work
+      .gallery-grid
+        each image in portfolio
+          .gallery-item
+            img(src=image.src, alt="Portfolio image #{image}")
+            .overlay
+              a.view-project(href=image.src) View Project
+
+  section.testimonials(data-aos="fade-up")
+    .container
+      h2.section-header(data-aos="fade-up") Client Reviews
+
+      .swiper
+        .swiper-wrapper
+          .swiper-slide
+            .testimonial
+              img.avatar(src="https://plus.unsplash.com/premium_photo-1723672821485-1d56c48905c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY1fHxibGFjayUyMG1hbiUyMGxvb2tpbmclMjBsZWZ0fGVufDB8fDB8fHww", alt="Sarah & James")
+              blockquote "Working with this studio was an amazing experience. The photos exceeded our expectations!"
+              .author — Sarah & James, Wedding Clients
+          .swiper-slide
+            .testimonial
+              img.avatar(src="https://images.unsplash.com/photo-1615491580009-bc706467a810?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTg3fHxibGFjayUyMG1hbiUyMGxvb2tpbmclMjBsZWZ0fGVufDB8fDB8fHww", alt="Michael R.")
+              blockquote "The best professional headshots I've ever had. Highly recommended!"
+              .author — Michael R., Corporate Client
+          .swiper-slide
+            .testimonial
+              img.avatar(src="https://plus.unsplash.com/premium_photo-1661854033273-0d232ff4ac77?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc3fHxibGFjayUyMG1hbiUyMGxvb2tpbmclMjBsZWZ0fGVufDB8fDB8fHww", alt="Lillian M.")
+              blockquote "Creative, professional, and on-time delivery. Couldn't ask for more."
+              .author — Lillian M., Brand Strategist
+
+  section.pricing
+    .container
+      h2.section-header Our Pricing Plans
+
+      .billing-toggle
+        span Billing:
+        label.switch
+          input(type="checkbox", id="billingToggle")
+          span.slider
+        span#billing-type Monthly
+
+      .pricing-grid
+        each plan in plans
+          .pricing-card(class=plan.featured ? 'featured' : '')
+            if plan.featured
+              .ribbon Most Popular
+            h3.plan-title= plan.title
+            .price
+              span.dollar $
+              span.amount(
+                  data-monthly=plan.price.monthly,
+                  data-yearly=plan.price.yearly
+              )= plan.price.monthly
+              span.billing-unit /mo
+            ul.features
+              each item in plan.features
+                li= item
+            a.btn.btn-primary(href="#booking") Get Started
+
+  section#booking.booking
+    .container
+      h2.section-header Book Your Session
   
-  h1(class='home-header') 
-    | This is the home page of the application
+      form(action="/book", method="POST")
+        .form-group
+          label(for="name") Full Name
+          input(type="text", name="name", required)
   
-  p(class='description') 
-    | This is a simple web application using Express and Jade.
+        .form-group
+          label(for="email") Email Address
+          input(type="email", name="email", required)
+  
+        .form-group
+          label(for="phone") Phone Number
+          input(type="tel", name="phone")
+  
+        .form-group
+          label(for="session") Session Type
+          select(name="session")
+            option(value="starter") Starter
+            option(value="pro") Pro
+            option(value="studio") Studio
+        .form-group
+          button.btn.btn-primary(type="submit") Proceed to Checkout
+  
