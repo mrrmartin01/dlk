@@ -27,8 +27,52 @@ html
 
     block content
 
-    footer 
-      p.footer-text © 2023 My Application. All rights reserved.
+    footer
+      .footer-grid 
+        .footer-grid-item
+          .logo Professional Photography
+          p.footer-text(style="font-size:10px") Our team of experienced photographers captures the essence of every moment with creativity and passion.
+    
+        .footer-grid-item
+          .logo Links
+          .footer-links
+             a(href="/") Home
+             a(href="/weddings") Weddings
+             a(href="/fashion") Fashion
+             a(href="/personal") Personal
+    
+        .footer-grid-item
+          .logo Socials
+          .footer-links
+             a(href="https://facebook.com/")
+               i.fab.fa-facebook-f
+               |  Facebook
+             a(href="https://youtube.com")
+               i.fab.fa-youtube
+               |  YouTube
+             a(href="https://linkedin.com")
+               i.fab.fa-linkedin-in
+               |  LinkedIn
+             a(href="https://twitter.com")
+               i.fab.fa-twitter
+               |  Twitter
+
+
+        .footer-grid-item
+          .logo Reach Out
+          .footer-links
+             a(href="mailto:professionalmail@gmail.com")
+               i.fas.fa-envelope
+               |  Email Us
+             a(href="tel:+12345678901")
+               i.fas.fa-phone
+               |  Call Us
+
+      .footer-bottom
+        p.footer-text(style="font-size:9px") 123 Studio St, New York, NY
+        p.footer-text(style="font-size:9px") © 2023 Professional Photography. All rights reserved.
+
+
 
     script(src="/javascript/swiper-bundle.min.js")
     script(src="/javascript/aos.js")

@@ -96,10 +96,11 @@ block content
             a.btn.btn-primary(href="#booking") Get Started
 
   section#booking.booking
-    .container
+    .booking-container
       h2.section-header Book Your Session
   
-      form(action="/book", method="POST")
+      form.booking-grid(action="/book", method="POST")
+      .form-grid
         .form-group
           label(for="name") Full Name
           input(type="text", name="name", required)
@@ -114,7 +115,8 @@ block content
   
         .form-group
           label(for="session") Session Type
-          select(name="session")
+          select(name="session", required)
+            option(value="" ,disabled, selected) -- Select a session --
             option(value="starter") Starter
             option(value="pro") Pro
             option(value="studio") Studio
