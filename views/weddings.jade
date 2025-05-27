@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .gallery-container
+    h1.wedding-header Wedding Gallery
+    p.wedding-sub Experience the magic of our special moments beautifully captured.
+
+    .masonry-gallery
+      each image in images
+        .masonry-item
+          .masonry-item-inner
+            img(src=image.src, alt='Wedding Photo')

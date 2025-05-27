@@ -19,7 +19,7 @@ console.log('MongoDB URI:', process.env.DATABASE_URI);
 
 
 var indexRouter = require('./routes/index');
-var aboutRouter = require('./routes/about');
+var weddingRouter = require('./routes/weddings');
 var bookRouter = require('./routes/book');
 var usersRouter = require('./routes/users');
 
@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 
 // Middleware to set the title for all views
 app.use('/', indexRouter);
-app.use('/about', aboutRouter);
+app.use('/weddings', weddingRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

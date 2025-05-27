@@ -4,7 +4,13 @@ var router = express.Router();
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", {
-    title: "Above Incentive's Motel",
+    title: "Professional Photography",
+    description: "Capture your moments with our professional photography services. From weddings to portraits, we bring your vision to life.",
+    keywords: "photography, professional, portraits, weddings, events, gallery",
+    author: "Theophilus Martin",
+    robots: "index, follow",
+    ogTitle: "Professional Photography Services",
+    ogDescription: "Explore our portfolio and discover how we can capture your special moments with stunning photography.",
     pageStyles: "/stylesheets/index.css",
     portfolio: [
       { src:"https://plus.unsplash.com/premium_photo-1741884363239-3dcc7d5e11ab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY5fHxibGFjayUyMG1hbiUyMGxvb2tpbmclMjBsZWZ0fGVufDB8fDB8fHww"},
