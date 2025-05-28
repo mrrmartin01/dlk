@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET about page. */
 router.get("/", function (req, res) {
-  res.render("Contact", {
+  res.render("contact", {
     title: "Contact",
     description: "Get in touch with me.",
     keywords: "contact, get in touch, reach out",
