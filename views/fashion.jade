@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .gallery-container
+    h1.wedding-header Fashion Gallery
+    p.wedding-sub Discover the artistry and elegance of our latest fashion moments.
+
+    .masonry-gallery
+      each image in images
+        .masonry-item
+          .masonry-item-inner
+            img(src=image.src, alt='Wedding Photo')
