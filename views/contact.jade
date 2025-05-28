@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .contact-container
+    h1.contact-title Get In Touch
+    p.contact-subtext I’d love to hear from you. Whether you have a question or just want to say hi, my inbox is open.
+
+    form.contact-form(action="/contact", method="POST")
+      .form-group
+        label(for="name") Name
+        input(type="text", id="name", name="name", required placeholder="Your full name")
+      
+      .form-group
+        label(for="email") Email
+        input(type="email", id="email", name="email", required placeholder="you@example.com")
+      
+      .form-group
+        label(for="message") Message
+        textarea(id="message", name="message", rows="5", required placeholder="Your message here...")
+      
+      .form-action
+        button(type="submit") Send Message

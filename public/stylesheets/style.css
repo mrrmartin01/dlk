@@ -53,19 +53,19 @@ body {
 
 .nav-list li.active a:hover {
   background-color: transparent;
-  color: #0866ff;
+  color: #d3f70c;
 }
 
 /* Active Nav */
 .nav-list li.active a {
-  color: #669df7;
+  color: #d3f70c;
   text-decoration: underline wavy;
 }
 
 /* Active Nav */
 .nav-list li.contact-cta a {
-  background: #6899e9;
-  color: white;
+  background: #e7ff0b;
+  color: rgb(26, 26, 26);
   font-weight: 600;
 }
 
